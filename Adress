@@ -1,0 +1,45 @@
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # Выбор региона
+        wait_and_click_xpath(driver,
+            "//div[21]/div/div[2]/div/div[1]/div[1]/div/div[2]/div[2]/div[1]/form/span/input")
+        # Приморский край выбор
+        wait_and_click_xpath(driver,
+            "//div[21]/div/div[2]/div/div[1]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/a[55]")
+        # Город
+        wait_and_click_xpath(driver,
+            "//div[21]/div/div[2]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/form/span/input")              
+        # Выбор города
+        for i in range(10):
+             try:
+                 search = driver.find_element_by_xpath("//div[21]/div/div[2]/div/div[1]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/a[5]")
+             except Exception:
+                 time.sleep(2)
+                 driver.find_element_by_xpath("//div[21]/div/div[2]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/form/span/input").click()
+             except ElementNotVisibleException:
+                 raise
+             else:
+                 search.click()
+                 break
+        # Улица
+        wait_and_click_xpath(driver,
+            "//div[21]/div/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div[1]/form/span/input")
+        # Выбор улицы
+        for i in range(10):
+             try:
+                 search = driver.find_element_by_xpath("//div[21]/div/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/a[6]/span[2]")
+             except Exception:
+                 time.sleep(2)
+                 driver.find_element_by_xpath("//div[21]/div/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div[1]/form/span/i").click()
+             except ElementNotVisibleException:
+                 driver.find_element_by_xpath("//div[21]/div/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div[1]/form/span/i").click()
+             else:
+                 search.click()
+                 break
+        # Дом
+        send_keys_xpath(driver, "//div[21]/div/div[2]/div/div[1]/div[6]/div[1]/div[2]/div[2]/div/input", "666")
+        # Квартира
+        send_keys_xpath(driver, "//div[21]/div/div[2]/div/div[1]/div[6]/div[4]/div[2]/div[2]/div/input", "13")
+        # Сохранить введённый адрес
+        wait_and_click_xpath(driver,
+            "//div[21]/div/div[2]/div/div[2]/div[2]/a/span")       
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
